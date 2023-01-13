@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge, chrome=1" />
+    <meta name = "viewport" content = "width=device-width, initial-scale=1,
+    maximum-scale=1, user-scalable=0">
+    <title>SENSAI - Anime Recommender System</title>
+    <link rel = "stylesheet" type = "text/css" href = '/static/css/main.css'>
+    <link rel = "shortcut icon" href = "/static/assets/sensai-logo.ico" type = "image/x-icon">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+	<div id = "nav-bar">
+        <div id = "sensai-heading">
+            <a href = "/">SENSAI</a>
+        </div>
+        <div class = "mid-n-cont">
+            <div id = "mid-nav">
+                <a href = "/home">Home</a>
+                <a href = "#about">About</a>
+                <a href = "#top-anime">Top Anime</a>
+                <a href = "/recommend">Recommendations</a>
+            </div>
+            <div id = "contact-nav">
+                <a href = "#contact">Contact</a>
+            </div>
+        </div>
+        <div class =  "burger">
+            <div class = "line1"></div>
+            <div class = "line2"></div>
+            <div class = "line3"></div>
+        </div>
+	</div>
+
+
+    <div id = "about">
+        <div id = "header-main">
+            <div id = "about-main">
+                <h1>SENSAI</h1>
+                <p><span id = "sensai-head">SENSAI</span> is an anime recommendation system that recommends you anime you'd like. You can either check out the top anime or head over to the recommendations! </p>
+                <div class = "show-buttons">
+                    <div><button id = "show-popular"><a href = "#top-anime">TOP ANIME</a></button></div>
+                    <div><button id = "show-recommendations"><a href = "/recommend">RECOMMENDATIONS</a></button></div>
+                </div>
+            </div> 
+        </div>  
+    </div>
+    
+    <div id = "top-anime">
+        <h1>TOP ANIME</h1>
+        <p>Anime with the highest ratings</p>
+
+        <hr style = "height:2px; width: 96%; border-width: 0; color: #f6e8d6; background-color: #f6e8d6">
+
+        <div id = "list-of-popular-anime">
+
+            {% for i in range(anime_name|length)%}
+                <div id = "img-anime" class = "anime-holder_{{i}}">
+                    <img src = "{{ image[i] }}">
+                    <div id = "detail-holder">
+                        <p>{{i + 1}}</p>
+                        <span id = "name-anime">{{ anime_name[i] }}</span>
+                        <br>
+                        <br>
+                        <span id = "detail-anime"><span style = "font-size: 13px; color: #1d8e42;">Genre - </span> {{ genre[i][0] }}, {{genre[i][1] }}, {{ genre[i][2] }}  </span>
+                        <br>
+                        <span id = "detail-anime"><span style = "font-size: 13px; color: #1d8e42;">Release Date - </span> {{ release_date[i] }}  </span>
+                        <br>
+                        <span id = "detail-anime"><span style = "font-size: 13px; color: #1d8e42;">Episodes - </span> {{ episodes[i] }}  </span>
+                        <br>
+                        <span id = "detail-anime"><span style = "font-size: 13px; color: #1d8e42;">Rating - </span> {{ rating[i] }}  </span>
+                        <br>
+                        <br>
+                        <span>&nbsp; &nbsp; &nbsp; &nbsp;</span><button id = "read-more">READ MORE</button>
+                    </div>
+                </div>              
+
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details1" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[0] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[0] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[0]).split('.')[0] }}. {{ " ".join(synopsis[0]).split('.')[1] }}. {{ " ".join(synopsis[0]).split('.')[2] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[0]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[0] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[0] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[0] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details2" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[1] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[1] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[1]).split('.')[0] }}. {{ " ".join(synopsis[1]).split('.')[1] }}. {{ " ".join(synopsis[1]).split('.')[2] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[1]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[1] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[1] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[1] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details3" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[2] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[2] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[2]).split('.')[0] }}. {{ " ".join(synopsis[2]).split('.')[1] }}. {{ " ".join(synopsis[2]).split('.')[2] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[2]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[2] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[2] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[2] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details4" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[3] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[3] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[3]).split('.')[0] }}. {{ " ".join(synopsis[3]).split('.')[1] }}. {{ " ".join(synopsis[3]).split('.')[2] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[3]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[3] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[3] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[3] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details5" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[4] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[4] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[4]).split('.')[0] }}. {{ " ".join(synopsis[4]).split('.')[1] }}. {{ " ".join(synopsis[4]).split('.')[2] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[4]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[4] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[4] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[4] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details6" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[5] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[5] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[5]).split('.')[0] }}. {{ " ".join(synopsis[5]).split('.')[1] }}. {{ " ".join(synopsis[5]).split('.')[2] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[5]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[5] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[5] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[5] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details7" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[6] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[6] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[6]).split('.')[0] }}. {{ " ".join(synopsis[6]).split('.')[1] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[6]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[6] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[6] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[6] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details8" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[7] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[7] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[7]).split('.')[0] }}. {{ " ".join(synopsis[7]).split('.')[1] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[7]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[7] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[7] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[7] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details9" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[8] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[8] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[8]).split('.')[0] }}. {{ " ".join(synopsis[8]).split('.')[1] }}. {{ " ".join(synopsis[8]).split('.')[2] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[8]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[8] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[8] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[8] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+            {% for i in range(anime_name|length)%}
+
+                <!-- The Modal -->
+
+                <div id = "more-details10" class = "modal">
+
+                    <!-- More details content -->
+
+                    <div class = "more-details-content">
+                        <div class = "modal-header">
+                            <span class = "modal-anime-name"> {{ anime_name[9] }} </span>
+                        </div>
+                        <div class = "modal-body">
+                            <div>
+                                <img src = "{{ image[9] }}">
+                            </div>
+                            <div style = "width: 500px; padding: 4%;">
+                                <span style = "font-size: 16px; color: #1d8e42;">Synopsis - </span><span>{{ " ".join(synopsis[9]).split('.')[0] }}. {{ " ".join(synopsis[9]).split('.')[1] }}. {{ " ".join(synopsis[9]).split('.')[2] }}.</span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Genre - </span><span> {{ ", ".join(genre[9]) }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Release Date - </span><span> {{ release_date[9] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Episodes - </span><span> {{ episodes[9] }} </span>
+                                <br>
+                                <br>
+                                <span style = "font-size: 16px; color: #1d8e42;">Rating - </span><span> {{ rating[9] }} </span>   
+                                <br>
+                                <br>               
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div> 
+                
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div id = "contact">
+        <div id = "contact-heading">
+            <p> 
+                CONTACT   
+            </p>
+        </div>
+        <form class = "contact-form" action = "https://formspree.io/f/xwkjebek" method = "POST">
+            <input type = "text" class = "contact-form-text" name = "name" placeholder = "Your name" required>
+            <input type = "email" class = "contact-form-text" name = "email" placeholder = "Your email" required>
+            <input type = "text" class = "contact-form-text" name = "phone" placeholder = "Your phone">
+            <textarea class = "contact-form-text" name = "message" placeholder = "Your message" required></textarea>
+            <input type = "submit" class = "contact-form-btn" value = "Send">
+          </form>
+    </div>
+    <div id = "space-below-footer"></div>
+
+    <script>
+
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.mid-n-cont');
+            const navLinks = document.querySelectorAll('.mid-n-cont a');
+
+            burger.addEventListener('click', () => {
+                // Toggle Nav
+                nav.classList.toggle('nav-active');
+
+                // Animate Links
+                navLinks.forEach((link, index) => {
+                    if(link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+                    }
+                });
+
+                // Burger Animation
+                burger.classList.toggle('toggle');
+            });
+        }
+        
+        navSlide();
+
+        var modal1 = document.getElementById("more-details1")
+        var btn1 = document.querySelector(".anime-holder_0")
+
+        var modal2 = document.getElementById("more-details2")
+        var btn2 = document.querySelector(".anime-holder_1")
+
+        var modal3 = document.getElementById("more-details3")
+        var btn3 = document.querySelector(".anime-holder_2")
+
+        var modal4 = document.getElementById("more-details4")
+        var btn4 = document.querySelector(".anime-holder_3")
+
+        var modal5 = document.getElementById("more-details5")
+        var btn5 = document.querySelector(".anime-holder_4")
+
+        var modal6 = document.getElementById("more-details6")
+        var btn6 = document.querySelector(".anime-holder_5")
+
+        var modal7 = document.getElementById("more-details7")
+        var btn7 = document.querySelector(".anime-holder_6")
+
+        var modal8 = document.getElementById("more-details8")
+        var btn8 = document.querySelector(".anime-holder_7")
+
+        var modal9 = document.getElementById("more-details9")
+        var btn9 = document.querySelector(".anime-holder_8")
+
+        var modal10 = document.getElementById("more-details10")
+        var btn10 = document.querySelector(".anime-holder_9")
+
+        window.addEventListener('click', function(event) {
+            if(btn1.contains(event.target)){
+                modal1.style.display = "block";
+            }
+            if (event.target == modal1) {
+                modal1.style.display = "none";
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+
+            if(btn2.contains(event.target)){
+                modal2.style.display = "block";
+            }
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        });
+
+
+        window.addEventListener('click', function(event) {
+
+            if(btn3.contains(event.target)){
+                modal3.style.display = "block";
+            }
+            if (event.target == modal3) {
+                modal3.style.display = "none";
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+
+            if(btn4.contains(event.target)){
+                modal4.style.display = "block";
+            }
+            if (event.target == modal4) {
+                modal4.style.display = "none";
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+
+            if(btn5.contains(event.target)){
+                modal5.style.display = "block";
+            }
+            if (event.target == modal5) {
+                modal5.style.display = "none";
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+
+            if(btn6.contains(event.target)){
+                modal6.style.display = "block";
+            }
+            if (event.target == modal6) {
+                modal6.style.display = "none";
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+
+            if(btn7.contains(event.target)){
+                modal7.style.display = "block";
+            }
+            if (event.target == modal7) {
+                modal7.style.display = "none";
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+
+            if(btn8.contains(event.target)){
+                modal8.style.display = "block";
+            }
+            if (event.target == modal8) {
+                modal8.style.display = "none";
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+
+            if(btn9.contains(event.target)){
+                modal9.style.display = "block";
+            }
+            if (event.target == modal9) {
+                modal9.style.display = "none";
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+
+            if(btn10.contains(event.target)){
+                modal10.style.display = "block";
+            }
+            if (event.target == modal10) {
+                modal10.style.display = "none";
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
