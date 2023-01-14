@@ -33,3 +33,7 @@ This recommender system is responsive on multiple platforms, including different
 
 ### TABLETS
 
+![responsive-tablet-1-1](https://user-images.githubusercontent.com/81350016/212489843-0ea2cf9b-6d63-4145-89fa-f52c55e106d8.png)
+
+![responsive-tablet-1-2](https://user-images.githubusercontent.com/81350016/212489848-f9eb6e03-e39e-49f0-b2b8-5b12274be34b.png)
+
