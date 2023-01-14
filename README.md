@@ -25,8 +25,11 @@ This recommender system is responsive on multiple platforms, including different
 
 ### MOBILE DEVICES
 
-<img width="215" alt="responsive-mobile_1" src="https://user-images.githubusercontent.com/81350016/212487946-2101cc14-0a6c-4def-8cfa-9c194244d0cd.png"> <img margin="20px" width="203" alt="responsive-mobile_2" src="https://user-images.githubusercontent.com/81350016/212488246-ca12a3cd-61df-4e39-b041-b5f5f9fb7b3e.png"> <img margin="20px" width="211" alt="responsive-mobile_3" src="https://user-images.githubusercontent.com/81350016/212488249-888d7f76-18da-4bb5-9ce9-3d3474b93cd7.png">
+![responsive-mobile-1](https://user-images.githubusercontent.com/81350016/212488908-19bb8589-0ff8-4bcd-80bb-3088d0946ece.png)
 
-<img width="166" alt="responsive-mobile_4" src="https://user-images.githubusercontent.com/81350016/212488257-b39b0eb5-ffe9-4c94-9a20-1c7fcd7991a5.png"> <img width="173" alt="responsive-mobile_5" src="https://user-images.githubusercontent.com/81350016/212488266-51f3807c-af7d-4f7d-bf5a-c16ef0122527.png"> <img width="175" alt="responsive-mobile_6" src="https://user-images.githubusercontent.com/81350016/212488279-998c93b9-e4e6-4bdd-a6ab-d81b7bac6b46.png">
+![responsive-mobile-2](https://user-images.githubusercontent.com/81350016/212488913-49ef1316-3e43-4322-8f17-2304aae0f7b7.png)
 
-<img width="166" alt="responsive-mobile_7" src="https://user-images.githubusercontent.com/81350016/212488281-b8e96c59-13dc-4e97-9971-c468210f1dfd.png"> <img width="166" alt="responsive-mobile_8" src="https://user-images.githubusercontent.com/81350016/212488286-52c871e3-a2c5-477c-a006-f4ec81f98412.png"> <img width="175" alt="responsive-mobile_9" src="https://user-images.githubusercontent.com/81350016/212488288-a2b0c59a-b35b-43d1-bbd6-1b047824c277.png">
+![responsive-mobile-3](https://user-images.githubusercontent.com/81350016/212488919-fd04fd3f-58e7-41aa-91db-0f4d457d16b1.png)
+
+### TABLETS
+
