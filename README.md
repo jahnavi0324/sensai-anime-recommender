@@ -23,7 +23,7 @@
 
 This recommender system is responsive on multiple platforms, including different kinds of mobile devices as well as tablets. Some of the previews of the responsiveness is shown below:
 
-### MOBILE DEVICES
+## MOBILE DEVICES
 
 ![responsive-mobile-1](https://user-images.githubusercontent.com/81350016/212488908-19bb8589-0ff8-4bcd-80bb-3088d0946ece.png)
 
@@ -31,9 +31,18 @@ This recommender system is responsive on multiple platforms, including different
 
 ![responsive-mobile-3](https://user-images.githubusercontent.com/81350016/212488919-fd04fd3f-58e7-41aa-91db-0f4d457d16b1.png)
 
-### TABLETS
+## TABLETS
+
+1) Type 1:
 
 ![responsive-tablet-1-1](https://user-images.githubusercontent.com/81350016/212489843-0ea2cf9b-6d63-4145-89fa-f52c55e106d8.png)
 
 ![responsive-tablet-1-2](https://user-images.githubusercontent.com/81350016/212489848-f9eb6e03-e39e-49f0-b2b8-5b12274be34b.png)
 
+2) Type 2:
+
+![responsive-tablet-2](https://user-images.githubusercontent.com/81350016/212490278-9a327b4f-6f23-4741-bbc1-03fdece9453e.png)
+
+3) Type 3:
+
+![responsive-tablet-3](https://user-images.githubusercontent.com/81350016/212490303-0a568387-00b3-444f-bf92-18f10b6172ed.png)
