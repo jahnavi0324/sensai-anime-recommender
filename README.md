@@ -27,9 +27,9 @@ This recommender system is responsive on multiple platforms, including different
 
 ![responsive-mobile-1](https://user-images.githubusercontent.com/81350016/212488908-19bb8589-0ff8-4bcd-80bb-3088d0946ece.png)
 
-![responsive-mobile-2](https://user-images.githubusercontent.com/81350016/212488913-49ef1316-3e43-4322-8f17-2304aae0f7b7.png)
+![responsive-mobile-2](https://user-images.githubusercontent.com/81350016/215275755-cb5ff4b6-5a0e-4341-ae67-78d1be253d6c.png)
 
-![responsive-mobile-3](https://user-images.githubusercontent.com/81350016/212488919-fd04fd3f-58e7-41aa-91db-0f4d457d16b1.png)
+![responsive-mobile-3](https://user-images.githubusercontent.com/81350016/215275765-6d387c02-c045-40fb-92c9-f7bb7cdaf689.png)
 
 ## TABLETS
 
